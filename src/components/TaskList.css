@@ -1,0 +1,140 @@
+
+.task-list-wrapper {
+
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  overflow: auto;
+
+}
+
+.task-list-column1 {
+  grid-column: 1 / 2;
+  margin: 20px;
+  width: 400px;
+  background-color: #2a2c37;
+}
+
+.task-list h3 {
+  
+  text-align: left;
+  font-size: 20px;
+  color: #d3d3d3;
+}
+
+.task-list {
+
+  
+  
+  border-bottom: 0.25px solid;
+  border-top: 0.25px solid;
+  border-left: 0.25px solid;
+  border-right: 0.25px solid;
+  padding: 10% 20% 10% 10%;
+  border-radius: 5px;
+  height: 500px;
+  
+
+  overflow: auto;
+
+}
+
+
+.task-preview {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 0.25px solid;
+  border-top: 0.25px solid;
+  border-left: 0.25px solid;
+  border-right: 0.25px solid;
+  background-color: #fff;
+  border-radius: 5px;
+  border-color: #4682B4;
+  width: 300px;
+  font-size: 15px;
+  color: #131313;
+  position: relative;
+
+}
+
+.task-preview-row1 {
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.task-preview-row1 .user-icon {
+  border-radius: 15px;
+  margin: auto;
+  
+
+}
+
+.task-preview-row {
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  margin-bottom: 2%;
+  text-align: justify;
+
+}
+
+
+
+.task-preview-row .user-icon {
+  border-radius: 15px;
+  vertical-align: top;
+}
+
+.task-preview .high {
+  height: 10px;
+  width: 10px;
+  background-color: #FF0000;
+  border-radius: 50%;
+  display: flex;
+}
+
+.task-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.5);
+}
+.task-preview h4 {
+  font-size: 18px;
+  color: #131313;
+  margin-bottom: 8px;
+}
+
+.task-preview a{
+  text-decoration: none;
+  color: #131313
+}
+
+
+
+.task-list-column2 {
+  grid-column: 2 / 3;
+  margin: 20px;
+  width: 400px;
+  background-color: #2a2c37;
+}
+
+.task-list-column3 {
+  grid-column: 3 / 4;
+  margin: 20px;
+  width: 400px;
+  background-color: #2a2c37;
+}
+
+.task-list-column4 {
+  grid-column: 4 / 5;
+  margin: 20px;
+  width: 400px;
+  background-color: #2a2c37;
+}
+
+.task-list-column5 {
+  grid-column: 5 / 6;
+  margin: 20px;
+  width: 350px;
+  background-color: #2a2c37;
+}
+
