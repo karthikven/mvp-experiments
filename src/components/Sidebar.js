@@ -84,7 +84,7 @@ const Sidebar = () => {
         <div className="link-to-create-new-task">
           
           <button>
-            <NavLink to="/">
+            <NavLink to="/create">
               <img src={plus} width="20" height="20"></img><span>&nbsp;&nbsp;Create New Task</span>
             </NavLink>
           </button>

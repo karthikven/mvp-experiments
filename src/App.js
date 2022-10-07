@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import AllTasks from './pages/all-tasks/AllTasks'
 import TaskCard from './pages/task-card/TaskCard'
+import CreateTask from './pages/create-task/CreateTask'
 import UserProfile from './pages/user-profile/UserProfile'
 
 
@@ -32,6 +33,11 @@ function App() {
           <Route path="/tasks/:id">
             <TaskCard />
           </Route>
+          <Route path="/create">
+            <CreateTask />
+          </Route>
+
+          
         {/* 
           <Route path="/users/:userId">
             <UserProfile />
