@@ -7,7 +7,7 @@ import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import AllTasks from './pages/all-tasks/AllTasks'
 import TaskCard from './pages/task-card/TaskCard'
-import CreateTask from './pages/create-task/CreateTask'
+import CreateTask2 from './pages/create-task/CreateTask2'
 import UserProfile from './pages/user-profile/UserProfile'
 
 
@@ -34,7 +34,7 @@ function App() {
             <TaskCard />
           </Route>
           <Route path="/create">
-            <CreateTask />
+            <CreateTask2 />
           </Route>
 
           
