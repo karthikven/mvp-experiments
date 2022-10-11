@@ -37,7 +37,7 @@ const CreateTask2 = () => {
 	const [plannedLaborHours, setPlannedLaborHours] = useState('')
 
 	const [pageNumber, setPageNumber] = useState(0)
-	const pageTitles = ["Task Attributes", "Location & Plans", "Task Members", "Labor & Material"]
+	const pageTitles = ["Task Attributes", "Task Members", "Location & Plans",  "Labor & Material"]
 	const pageComponents = {0: <TaskAttributes />, 1: <TaskMembers />, 2: <LocationAndDesign />, 3: <LaborMaterial />}
 
 	return (

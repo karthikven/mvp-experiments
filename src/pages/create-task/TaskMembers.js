@@ -2,7 +2,8 @@
 const TaskMembers = () => {
 	return (
 		<div>
-			Task Members
+			Add Users to Work on Task:
+			Add Supervisors:  
 		</div>
 	)
 }

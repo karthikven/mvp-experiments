@@ -1,14 +1,15 @@
 
 import { useState } from 'react'
+import Select from 'react-select'
 
 const TaskAttributes = () => {
 	// fields in this page: task name, category, workflow, planned start date, deadline, priority, measurements
 
 	const [taskName, setTaskName] = useState('')
-	const [category, setCategory] = useState('')
+	const [category, setCategory] = useState('Civil')
 	const [workflow, setWorkflow] = useState('')
 	const [priority, setPriority] = useState('')
-	const [plannedStartDate, setPlannedStartDate] = useState('')
+	const [plannedStartDate, setPlannedStartDate] = useState(' ')
 	const [deadline, setDeadline] = useState('')
 	const [measurementsValue, setMeasurementsValue] = useState('')
 	const [measurementsUnits, setMeasurementsUnits] = useState('')
@@ -33,7 +34,22 @@ const TaskAttributes = () => {
 									"Painting": ["Painting WF 1", "Painting WF 2", "Painting WF 3"],
 									"Weathering Course": ["Weathering Course WF 1", "Weathering Course WF 2", "Weathering Course WF 3"],
 									"Waterproofing": ["Waterproofing WF 1", "Waterproofing WF 2", "Waterproofing WF 3"]
+									
 								}
+	const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' }
+]
+
+	
+	const cat_list = category_list.map(cat => ({value: cat, label: cat}))
+	const wf_list = category_workflow_map[category].map(wf => ({value: wf, label: wf}))
+	
+
+	
+
+
 	return (
 		<div className="create-card-task-attributes">
 
@@ -47,6 +63,10 @@ const TaskAttributes = () => {
 
 			{/* category*/}
 			<label htmlFor="category">Category: </label>
+			<Select options={cat_list} onChange={(e) => setCategory(e['value'])}/>
+
+		{/* 
+			<label htmlFor="category">Category: </label>
 			<select id="category" onChange={(e) => setCategory(e.target.value)}>
 				{
 					category_list.map(function(category, i) {
@@ -54,22 +74,15 @@ const TaskAttributes = () => {
 					})
 				}
 			</select>
+			*/}
 
 		{/* workflow */}
 
 			<label htmlFor="workflow">Workflow: </label>
-			<select id="workflow">
-				{ /*
-					category_workflow_map[category].map(function(wf, i) {
-						return <option value={wf} key={wf}>{wf}</option>
-					})
-					*/
-				}
-			</select>
+			<Select options={wf_list} onChange={(e) => setWorkflow(e['value'])}/>
+			
 
-		{/* priority */}
-		<br></br>
-			Priority:
+			{/*
 			<input type="radio" id="priority-high" value="high" name="priority" onChange={(e) => setPriority(e.target.value)}></input>
 			<label htmlFor="priority-high">High</label>
 
@@ -78,17 +91,20 @@ const TaskAttributes = () => {
 
 			<input type="radio" id="priority-low" value="low" name="priority" onChange={(e) => setPriority(e.target.value)}></input>
 			<label htmlFor="priority-low">Low</label>
+			*/}
 
 		{/* planned start date */}
 			<label htmlFor="planned_start_date">Planned Start Date: </label>
+		
 			<input 
 				type="date"
 				id="planned_start_date"
 				value={plannedStartDate}
 				onChange={(e) => setPlannedStartDate(e.target.value)}
 			/>
+		
 
-		{/* deadline*/}
+		{/* deadline */}
 			<label htmlFor="deadline">Deadline: </label>
 			<input 
 				type="date"
@@ -96,15 +112,47 @@ const TaskAttributes = () => {
 				value={deadline}
 				onChange={(e) => setDeadline(e.target.value)}
 			/>
+			
 
-			<div className="measurements">
-				<label htmlFor="measurement-value">Measurements Value:</label>
-				<input type="number" value="measurement-value" id="measurement-value"></input>
+			
+			<label htmlFor="measurement-value">Measurements - Value:</label>
+			<input type="number" value={measurementsValue} id="measurement-value" onChange={(e) => setMeasurementsValue(e.target.value)}></input>
 
-				<label htmlFor="measurement-unit">Units:</label>
-				<input type="number" value="measurement-value" id="measurement-value"></input>
+			<label htmlFor="measurement-unit">Measurements - Units:</label>
+			<input type="text" value={measurementsUnits} id="measurement-unit" onChange={(e) => setMeasurementsUnits(e.target.value)}></input>
+
+
+			{/* priority */}
+
+			<label htmlFor="priority">Priority:</label>
+			<select id="priority">
+				<option value="high">High</option>
+				<option value="high">Medium</option>
+				<option value="high">Low</option>
 				
-			</div>
+			</select>
+		
+
+		{/*
+		
+		<div className="create-form-priority-radio">
+
+			
+
+			<input type="radio" id="priority-high" value="high" name="priority" onChange={(e) => setPriority(e.target.value)}></input>
+			<label htmlFor="priority-high">High</label>
+
+			<input type="radio" id="priority-medium" value="medium" name="priority" onChange={(e) => setPriority(e.target.value)}></input>
+			<label htmlFor="priority-medium">Medium</label>
+
+			<input type="radio" id="priority-low" value="low" name="priority" onChange={(e) => setPriority(e.target.value)}></input>
+			<label htmlFor="priority-low">Low</label>
+			
+		</div>
+		*/}	
+			
+
+
 
 
 
