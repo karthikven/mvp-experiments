@@ -36,19 +36,10 @@ const TaskAttributes = () => {
 									"Waterproofing": ["Waterproofing WF 1", "Waterproofing WF 2", "Waterproofing WF 3"]
 									
 								}
-	const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
-]
 
-	
+
 	const cat_list = category_list.map(cat => ({value: cat, label: cat}))
 	const wf_list = category_workflow_map[category].map(wf => ({value: wf, label: wf}))
-	
-
-	
-
 
 	return (
 		<div className="create-card-task-attributes">
@@ -63,7 +54,9 @@ const TaskAttributes = () => {
 
 			{/* category*/}
 			<label htmlFor="category">Category: </label>
-			<Select options={cat_list} onChange={(e) => setCategory(e['value'])}/>
+			<Select className="create-card-select" options={cat_list} onChange={(e) => setCategory(e['value'])}/>
+
+
 
 		{/* 
 			<label htmlFor="category">Category: </label>
@@ -79,19 +72,8 @@ const TaskAttributes = () => {
 		{/* workflow */}
 
 			<label htmlFor="workflow">Workflow: </label>
-			<Select options={wf_list} onChange={(e) => setWorkflow(e['value'])}/>
+			<Select className="create-card-select" options={wf_list} onChange={(e) => setWorkflow(e['value'])}/>
 			
-
-			{/*
-			<input type="radio" id="priority-high" value="high" name="priority" onChange={(e) => setPriority(e.target.value)}></input>
-			<label htmlFor="priority-high">High</label>
-
-			<input type="radio" id="priority-medium" value="medium" name="priority" onChange={(e) => setPriority(e.target.value)}></input>
-			<label htmlFor="priority-medium">Medium</label>
-
-			<input type="radio" id="priority-low" value="low" name="priority" onChange={(e) => setPriority(e.target.value)}></input>
-			<label htmlFor="priority-low">Low</label>
-			*/}
 
 		{/* planned start date */}
 			<label htmlFor="planned_start_date">Planned Start Date: </label>
@@ -125,38 +107,8 @@ const TaskAttributes = () => {
 			{/* priority */}
 
 			<label htmlFor="priority">Priority:</label>
-			<select id="priority">
-				<option value="high">High</option>
-				<option value="high">Medium</option>
-				<option value="high">Low</option>
-				
-			</select>
-		
-
-		{/*
-		
-		<div className="create-form-priority-radio">
-
+			<Select className="create-card-select" options={[{value: "high", label:"High"}, {value:"medium", label:"Medium"}, {value:"low", label:"Low"}]} onChange={(e) => setPriority(e['value'])}/>
 			
-
-			<input type="radio" id="priority-high" value="high" name="priority" onChange={(e) => setPriority(e.target.value)}></input>
-			<label htmlFor="priority-high">High</label>
-
-			<input type="radio" id="priority-medium" value="medium" name="priority" onChange={(e) => setPriority(e.target.value)}></input>
-			<label htmlFor="priority-medium">Medium</label>
-
-			<input type="radio" id="priority-low" value="low" name="priority" onChange={(e) => setPriority(e.target.value)}></input>
-			<label htmlFor="priority-low">Low</label>
-			
-		</div>
-		*/}	
-			
-
-
-
-
-
-	
 		</div>
 	)
 }

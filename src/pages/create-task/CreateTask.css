@@ -145,7 +145,12 @@
   /*margin: 10px 0 20px 0;*/
   height: 30px;
   font-size: 12px;
+  height: 30px;
   font-family: 'Avenir Next', sans-serif;
+}
+
+.create-card-select {
+  font-size: 12px;
 }
 
 
