@@ -1,6 +1,7 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Select from 'react-select'
+import supabase from '../../config/supabaseClient'
 
 const TaskAttributes = () => {
 	// fields in this page: task name, category, workflow, planned start date, deadline, priority, measurements
@@ -13,6 +14,10 @@ const TaskAttributes = () => {
 	const [deadline, setDeadline] = useState('')
 	const [measurementsValue, setMeasurementsValue] = useState('')
 	const [measurementsUnits, setMeasurementsUnits] = useState('')
+	const [fetchUsersError, setFetchUsersError] = useState(null)
+	const [taskAssignedTo, setTaskAssignedTo] = useState(null)
+	const [dropdownUsersList, setDropdownUsersList] = useState(null)
+
 
 	const category_list = ["Civil", "Electrical", "Plumbing", "Carpentry", 
 						"Marble Flooring", "Granite Flooring", "Tile Flooring", "False Ceiling", 
@@ -36,6 +41,31 @@ const TaskAttributes = () => {
 									"Waterproofing": ["Waterproofing WF 1", "Waterproofing WF 2", "Waterproofing WF 3"]
 									
 								}
+
+
+	useEffect(() => {
+
+		const fetchUsers = async () => {
+			const { data, error } = await supabase
+				.from('users')
+				.select()
+
+			if (error) {
+				setFetchUsersError('could not fetch users')
+				setDropdownUsersList(null)
+				console.log(error)
+			}
+
+			if (data) {
+				setFetchUsersError(null)	
+				console.log(data)
+				setDropdownUsersList(data.map((record) => ({value: record.id, label: record.user_first_name.concat(" ").concat(record.user_last_name)})))
+			}
+		}
+
+		fetchUsers()		
+
+	}, [])
 
 
 	const cat_list = category_list.map(cat => ({value: cat, label: cat}))
@@ -94,6 +124,23 @@ const TaskAttributes = () => {
 				value={deadline}
 				onChange={(e) => setDeadline(e.target.value)}
 			/>
+
+		{/* priority */}
+
+			<label htmlFor="priority">Priority:</label>
+			<Select className="create-card-select" options={[{value: "high", label:"High"}, {value:"medium", label:"Medium"}, {value:"low", label:"Low"}]} onChange={(e) => setPriority(e['value'])}/>
+
+
+		{/* assign task to */}
+
+			<label htmlFor="create-card-assignee-list">Assign task to: </label>
+			<Select className="create-card-select" options={dropdownUsersList} isMulti />
+
+		{/* assign watchers to */}
+
+			<label htmlFor="create-card-assignee-list">Task Supervisors: </label>
+			<Select className="create-card-select" options={dropdownUsersList} isMulti />
+
 			
 
 			
@@ -103,11 +150,6 @@ const TaskAttributes = () => {
 			<label htmlFor="measurement-unit">Measurements - Units:</label>
 			<input type="text" value={measurementsUnits} id="measurement-unit" onChange={(e) => setMeasurementsUnits(e.target.value)}></input>
 
-
-			{/* priority */}
-
-			<label htmlFor="priority">Priority:</label>
-			<Select className="create-card-select" options={[{value: "high", label:"High"}, {value:"medium", label:"Medium"}, {value:"low", label:"Low"}]} onChange={(e) => setPriority(e['value'])}/>
 			
 		</div>
 	)

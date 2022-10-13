@@ -93,7 +93,6 @@
 
 .create-card-form-container .create-card-body {
   flex: 60%;
-
 }
 
 
@@ -125,7 +124,7 @@
 .create-card-task-attributes {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 0.6rem;
 }
 
 
@@ -133,9 +132,9 @@
   display: inline-block;
   width: 250px;
   float: left;
-  font-size: 20px;
-        
+  font-size: 20px; 
 }
+
 .create-card-task-attributes input, .create-card-task-attributes textarea, .create-card-task-attributes select{
   display: flex;
   width: 100%;
@@ -152,5 +151,36 @@
 .create-card-select {
   font-size: 12px;
 }
+
+/* location and design page */
+
+.create-card-location-and-design {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.create-card-location-and-design label {
+  display: inline-block;
+  width: 250px;
+  float: left;
+  font-size: 20px;
+}
+
+.create-card-location-and-design input {
+  display: flex;
+  width: 100%;
+  padding: 6px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  /*margin: 10px 0 20px 0;*/
+  height: 30px;
+  font-size: 12px;
+  height: 30px;
+  font-family: 'Avenir Next', sans-serif;
+}
+
+
+
 
 

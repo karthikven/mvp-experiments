@@ -5,10 +5,9 @@ import supabase from '../../config/supabaseClient'
 const TaskMembers = () => {
 
 	const [fetchError, setFetchError] = useState(null)
+	const [taskAssignedTo, setTaskAssignedTo] = useState(null)
+	const [dropdownUsersList, setDropdownUsersList] = useState(null)
 	const [projectUsers, setProjectUsers] = useState(null)
-	const [taskMembers, setTaskMembers] = useState(null)
-	const [fetchAvatarsError, setFetchAvatarsError] = useState(null)
-	const [projectUsersAvatars, setProjectUsersAvatars] = useState(null)
 
 	useEffect(() => {
 		const fetchUsers = async () => {
@@ -18,18 +17,21 @@ const TaskMembers = () => {
 
 			if (error) {
 				setFetchError('could not fetch users')
-				setProjectUsers(null)
+
 				console.log(error)
 			}
 
 			if (data) {
-				setProjectUsers(data)
-				setFetchError(null)
 				
-				
+				setFetchError(null)	
+				console.log(data)
+				setDropdownUsersList(data.map((record) => (record.user_first_name.concat(" ").concat(record.user_last_name))))
+				setDropdownUsersList(data.map((record) => ({value: record.id, label: record.user_first_name.concat(" ").concat(record.user_last_name)})))
 			}
 		}
 
+
+		/*
 		const fetchAvatars = async () => {
 			const {data, error} = await supabase
 				.storage
@@ -48,18 +50,18 @@ const TaskMembers = () => {
 				console.log(data)
 			}
 		}
+		*/
 
-		fetchUsers()
-		fetchAvatars()
-
-		
-
+		fetchUsers()		
 
 	}, [])
+
 
 	return (
 		<div className="create-card-task-members">
 			<label htmlFor="create-card-assignee-list">Assign task to: </label>
+			{dropdownUsersList && dropdownUsersList.map((user) => (console.log(user)))}
+			{/*
 			{fetchError && (<p>{fetchError}</p>)}
 			{projectUsers && ( <div>
 				{projectUsers.map((user, index) => (
@@ -70,6 +72,10 @@ const TaskMembers = () => {
 			</div>
 				
 			)}
+		*/}
+
+			
+		<Select options={dropdownUsersList} isMulti />
 			
 		</div>
 	)

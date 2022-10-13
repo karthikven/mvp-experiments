@@ -5,7 +5,7 @@ import './CreateTask.css'
 
 // import form pages
 
-import TaskMembers from './TaskMembers'
+
 import TaskAttributes from './TaskAttributes'
 import LocationAndDesign from './LocationAndDesign'
 import LaborMaterial from './LaborMaterial'
@@ -37,15 +37,15 @@ const CreateTask2 = () => {
 	const [plannedLaborHours, setPlannedLaborHours] = useState('')
 
 	const [pageNumber, setPageNumber] = useState(0)
-	const pageTitles = ["Task Attributes", "Task Members", "Location & Plans",  "Labor & Material"]
-	const pageComponents = {0: <TaskAttributes />, 1: <TaskMembers />, 2: <LocationAndDesign />, 3: <LaborMaterial />}
+	const pageTitles = ["Task Attributes", "Location & Plans",  "Labor & Material"]
+	const pageComponents = {0: <TaskAttributes />, 1: <LocationAndDesign />, 2: <LaborMaterial />}
 
 	return (
 		<div className="create-card-modal-backdrop">
 			<div className="create-card-form-modal">
 				<div className="create-card-progressbar">
 					<div
-						style={{ width: pageNumber === 0 ? "25%" : pageNumber == 1 ? "50%" : pageNumber === 2 ? "75%": "100%" }}>
+						style={{ width: pageNumber === 0 ? "33.33333%" : pageNumber == 1 ? "66.666666%" : "100%" }}>
 					</div>
 				</div>
 				<div className="create-card-form-container">
