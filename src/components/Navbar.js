@@ -10,7 +10,7 @@ function Navbar() {
 					<h4>Welcome, Karthik.</h4>
 				</Link>
 				<Link to="/" className="nav-item">Tasks</Link>
-				<Link to="/" className="nav-item">Material</Link>
+				<Link to="/" className="nav-item">Drawings</Link>
 				<Link to="/" className="nav-item">Analytics</Link>
 			</nav>
 		</div>

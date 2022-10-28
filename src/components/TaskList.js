@@ -11,12 +11,15 @@ const TaskList = ({tasks}) => {
 		
 		<div className="task-list">
 			<h3>Overdue</h3>
+
 			{tasks.map((task) => (
-				<div className="task-preview" key={task.taskId}>
-					<Link to={`/tasks/${task.taskId}`}>
-						<div className="task-preview-row1"><h4>{ task.taskName }</h4><img className="user-icon" src={homer} width="30" height="30"></img></div>
-						<div className="task-preview-row"><div className="high"></div>&nbsp;&nbsp;{ task.priority } &nbsp;&nbsp;&nbsp;&nbsp; <img src={deadline} width="15" height="15"></img>&nbsp;{task.dueDate} &nbsp;&nbsp;&nbsp;&nbsp;{task.category}</div>	
-						<div className="task-preview-row">{ task.location } &nbsp;&nbsp;&nbsp;&nbsp; 60% Completed</div>	
+				<div className="task-preview" key={task.task_id}>
+					<Link to={`/tasks/${task.task_id}`}>
+						<div className="task-preview-row1"><h4>{ task.task_name }</h4><img className="user-icon" src={homer} width="30" height="30"></img></div>
+						<div className="task-preview-row"><div className="high"></div>&nbsp;&nbsp;{ task.priority } &nbsp;&nbsp;&nbsp;&nbsp; <img src={deadline} width="15" height="15"></img>&nbsp;{task.deadline.slice(0,10)} &nbsp;&nbsp;&nbsp;&nbsp;{task.category}</div>	
+						<div className="task-preview-row">{ task.location_block }{ task.location_floor }F{ task.location_unit }U{ task.location_room } &nbsp;&nbsp;&nbsp;&nbsp; 60% Completed</div>	
+						{console.log(Date.parse(task.deadline))}
+							{console.log(task.isCompleted_flag)}
 					</Link>				
 				</div>
 				))
@@ -33,16 +36,18 @@ const TaskList = ({tasks}) => {
 		
 		<div className="task-list">
 			<h3>To Do</h3>
-			{tasks.map((task) => (
-				<div className="task-preview" key={task.taskId}>
-					<Link to={`/tasks/${task.taskId}`}>
-						<div className="task-preview-row1"><h4>{ task.taskName }</h4><img className="user-icon" src={homer} width="30" height="30"></img></div>
-						<div className="task-preview-row"><div className="high"></div>&nbsp;&nbsp;{ task.priority } &nbsp;&nbsp;&nbsp;&nbsp; <img src={deadline} width="15" height="15"></img>&nbsp;{task.dueDate} &nbsp;&nbsp;&nbsp;&nbsp;{task.category}</div>	
-						<div className="task-preview-row">{ task.location } &nbsp;&nbsp;&nbsp;&nbsp; 60% Completed</div>	
+			{tasks.map((task) => 
+				(
+				<div className="task-preview" key={task.task_id}>
+					<Link to={`/tasks/${task.task_id}`}>
+						<div className="task-preview-row1"><h4>{ task.task_name }</h4><img className="user-icon" src={homer} width="30" height="30"></img></div>
+						<div className="task-preview-row"><div className="high"></div>&nbsp;&nbsp;{ task.priority } &nbsp;&nbsp;&nbsp;&nbsp; <img src={deadline} width="15" height="15"></img>&nbsp;{task.deadline.slice(0,10)} &nbsp;&nbsp;&nbsp;&nbsp;{task.category}</div>	
+						<div className="task-preview-row">{ task.location_block }{ task.location_floor }F{ task.location_unit }U{ task.location_room } &nbsp;&nbsp;&nbsp;&nbsp; 60% Completed</div>	
 					</Link>				
 				</div>
-				))
-			}
+				)
+			)
+			}			
 		</div>
 
 

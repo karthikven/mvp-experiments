@@ -6,7 +6,7 @@ import TaskList from './../../components/TaskList'
 
 
 function AllTasks() {
-	const {data: tasks, isPending, error} = useFetch('http://localhost:3000/tasks')
+	const {data: tasks, isPending, error} = useFetch('http://localhost:3009/tasks')
 
 	return (
 		<div className="all-tasks-wrapper">
