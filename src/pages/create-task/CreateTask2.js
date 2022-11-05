@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useHistory } from "react-router-dom";
-import supabase from "./../../config/supabaseClient"
-import './CreateTask.css'
+
+
 
 // import form pages
 

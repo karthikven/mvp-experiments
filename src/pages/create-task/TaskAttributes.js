@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react'
 import Select from 'react-select'
-import supabase from '../../config/supabaseClient'
+
 
 const TaskAttributes = () => {
 	// fields in this page: task name, category, workflow, planned start date, deadline, priority, measurements
@@ -43,29 +43,29 @@ const TaskAttributes = () => {
 								}
 
 
-	useEffect(() => {
-
-		const fetchUsers = async () => {
-			const { data, error } = await supabase
-				.from('users')
-				.select()
-
-			if (error) {
-				setFetchUsersError('could not fetch users')
-				setDropdownUsersList(null)
-				console.log(error)
-			}
-
-			if (data) {
-				setFetchUsersError(null)	
-				console.log(data)
-				setDropdownUsersList(data.map((record) => ({value: record.id, label: record.user_first_name.concat(" ").concat(record.user_last_name)})))
-			}
-		}
-
-		fetchUsers()		
-
-	}, [])
+// 	useEffect(() => {
+// 
+// 		const fetchUsers = async () => {
+// 			const { data, error } = await supabase
+// 				.from('users')
+// 				.select()
+// 
+// 			if (error) {
+// 				setFetchUsersError('could not fetch users')
+// 				setDropdownUsersList(null)
+// 				console.log(error)
+// 			}
+// 
+// 			if (data) {
+// 				setFetchUsersError(null)	
+// 				console.log(data)
+// 				setDropdownUsersList(data.map((record) => ({value: record.id, label: record.user_first_name.concat(" ").concat(record.user_last_name)})))
+// 			}
+// 		}
+// 
+// 		fetchUsers()		
+// 
+// 	}, [])
 
 
 	const cat_list = category_list.map(cat => ({value: cat, label: cat}))

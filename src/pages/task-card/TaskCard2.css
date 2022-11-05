@@ -20,7 +20,7 @@
   padding: 0 0 24px;
   /*color: hsla(0,0%,100%,.85);*/
   color: #131313;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5715;
 }
 
@@ -49,18 +49,24 @@
   flex-direction: column;
   position: relative;
   width: 90%;
-  height: 100%;
+  height: 450px;
   /*background: #131313;*/
   margin: 2% 0% auto 0%;
   /*margin: 100px auto 0;*/
   word-break: break-all;
   /*border: 1px solid rgba(0, 0, 0, 0.274);*/
+
+  
 }
 
 .task-card-tab-buttons {
   display: flex;
   background: #131313;
   padding-top: 0.75%;
+  padding-left: 0.5%;
+  width: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 
 }
 
@@ -68,20 +74,21 @@
 
   padding: 0.75%;
   text-align: center;
-  width: 50%;
+  width: 20%;
   /*background: rgba(128, 128, 128, 0.075);*/
   background: #131313;
   color: #fff;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.274);
+  /*border: 1px solid rgba(0, 0, 0, 0.274);*/
   box-sizing: content-box;
   position: relative;
   outline: none;
   font-size: 16px;
 
 }
-.task-card-tab-buttons .tabs:not(:last-child){
-  border-right: 1px solid gray;/*rgba(0, 0, 0, 0.274)*/;
+.task-card-tab-buttons .tabs:not(:first-child) {
+  border-left: 1px solid #56575d;
+  
 }
 
 .task-card-tab-buttons .active-tabs  {
@@ -89,12 +96,16 @@
   /*border-bottom: 1px solid transparent;*/
   color: #fff;
   border-top: none;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
-.task-card-tab-buttons .active-tabs::before {
+.task-card-tab-buttons .active-tabs + .tabs {
+  border-left: none;
+}
+
+
+/*.task-card-tab-buttons .active-tabs::before {
   content: "";
   display: block;
   position: absolute;
@@ -103,35 +114,31 @@
   transform: translateX(-50%);
   width: calc(100% + 2px);
   height: 5px;
-
-
-  /*background: rgb(88, 147, 241);*/
 }
-
-
-
+*/
 .task-card-tab-buttons button {
   border: none;
+  padding-left: 1%;
 }
 
 .task-card-tab-content {
-  flex-grow : 1;
+  /*flex-grow : 1;*/
+  border: solid #56575d;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;  
+  height: 100%;
+  background: brown;
 }
 .task-card-tab-content .content {
-  background: white;
-  padding: 20px;
-  width: 96.5%;
-  height: 100%;
+/*  padding: 20px;
+  width: auto;*/
   display: none;
-  border: solid gray;
-}
-.task-card-tab-buttons .content h2 {
-  padding: 0px 0 5px 0px;
-}
-.task-card-tab-content .content p {
-  width: 100%;
-  height: 100%;
+  
 }
 .task-card-tab-content .active-content {
   display: block;
+  
 }
+
+
+
